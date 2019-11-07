@@ -1,0 +1,11 @@
+-Sensores (x4)
+-Motores (Motorreductor DC) (x2)
+-Cinta para la banda (ancha y harta)
+-Rodillos con fricción (osea no lisos) (x4)
+-Engranajes (Una opcion es hacerlos y cortarlos a laser en MDF)
+-Eje (Es como un tubo que gira conectado al rodillo y al motor)
+-LEDs (Ojala un poco grandes. Rojo y Verde)
+-Botones y Pulsadores. Tambien un poco grandes.
+-Jumpers y cables.
+-Seta de Emergencia.
+-Bateria de 9V.
