@@ -1,0 +1,13 @@
+Cosas por hacer:
+1) Banda transportadora (x2)
+	-Motores (Motorreductor DC) (x2)
+	-Sensores (x4)
+	-Cinta para la banda (ancha y harta)
+	-Rodillos con fricción (osea no lisos) (x4)
+	-Engranajes (Una opcion es hacerlos y cortarlos a laser en MDF)
+	-Eje (Es como un tubo que gira conectado al rodillo y al motor)
+	Mañana 12 de Noviembre ir a la novena.
+2) Camara
+	-Instalacion en la Raspberry de la libreria de ROS. Mañana 12 de Noviembre instalado.
+	-Pruebas con la libreria y que se tengan los datos.
+	-Codigo para procesamiento de las imagenes.
