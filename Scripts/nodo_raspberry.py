@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 #Las librerias que se importan
 import rospy
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 from sensor_msgs.msg import Image as msg_Image
 from std_msgs.msg import Int32
+from proyectoAutomatizacion.srv import DireccionBanda
 
 h = 10 #Hertz
 
@@ -13,12 +14,17 @@ def callbackPrueba(msg):
 
 def main():
     rospy.init_node('nodo_raspberry', anonymous=True)
-    rospy.Subscriber('topico_prueba', Int32, callbackPrueba)
+    #rospy.Subscriber('topico_prueba', Int32, callbackPrueba)
     rate = rospy.Rate(h)
 
-    while not rospy.is_shutdown():
+    servicio = rospy.ServiceProxy('servicio_prueba', DireccionBanda, persistent = True)
 
-        rate.sleep()
+    #while not rospy.is_shutdown():
+    res = servicio()
+
+    print(res)
+
+    #   rate.sleep()
 
 if __name__ == '__main__':
     try:
