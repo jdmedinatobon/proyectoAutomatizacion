@@ -23,7 +23,7 @@ def callBackServicio(data):
 
 def main():
     rospy.init_node('nodo_computador', anonymous=True)
-    #rospy.Subscriber('/camera/depth/image_rect_raw', msg_Image, callbackPrueba)
+    rospy.Subscriber('/camera/depth/image_rect_raw', msg_Image, callbackPrueba)
     pub = rospy.Publisher('topico_prueba', Int32, queue_size = 10)
     rate = rospy.Rate(h)
 
