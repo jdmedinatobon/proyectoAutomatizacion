@@ -13,7 +13,7 @@ def callbackPrueba(msg):
 
 def main():
     rospy.init_node('nodo_raspberry', anonymous=True)
-    rospy.Subscriber('/camera/depth/image_rect_raw', msg_Image, callbackPrueba)
+    rospy.Subscriber('topico_prueba', Int32, callbackPrueba)
     rate = rospy.Rate(h)
 
     while not rospy.is_shutdown():
