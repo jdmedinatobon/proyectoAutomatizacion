@@ -19,12 +19,13 @@ def main():
 
     servicio = rospy.ServiceProxy('servicio_prueba', DireccionBanda, persistent = True)
 
-    #while not rospy.is_shutdown():
-    res = servicio()
+    while not rospy.is_shutdown():
+        res = servicio()
 
-    print(res)
+        print(res)
 
-    #   rate.sleep()
+        #rate.sleep()
+        rospy.sleep(1)
 
 if __name__ == '__main__':
     try:
