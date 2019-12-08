@@ -20,9 +20,20 @@ pinLED1 = 36
 pinLED2 = 38
 pinLED3 = 40
 
+#Son los pines de los sensores de ultrasonido
+pinUS1_echo = 11
+pinUS1_trig = 12
+pinUS2_echo = 13
+pinUS2_trig = 15
+pinUS3_echo = 16
+pinUS3_trig = 18
+
 def callbackPrueba(msg):
     print("Recibiendo: {}.".format(msg.data))
     pass
+
+def calcularDistancia():
+
 
 def main():
     global funcionando
