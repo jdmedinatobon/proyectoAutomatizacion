@@ -9,7 +9,7 @@ from proyectoAutomatizacion.srv import DireccionBanda
 h = 10 #Hertz
 funcionando = False
 
-pinStart = 11
+pinStart = 37
 
 def callbackPrueba(msg):
     print("Recibiendo: {}.".format(msg.data))
