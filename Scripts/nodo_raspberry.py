@@ -61,7 +61,7 @@ def main():
 
         rospy.sleep(1)
 
-    GPIO.output(pinLED1, 0)
+    GPIO.cleanup()
 
 if __name__ == '__main__':
     try:
