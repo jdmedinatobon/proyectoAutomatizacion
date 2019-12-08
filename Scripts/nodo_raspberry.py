@@ -16,7 +16,9 @@ pinStart = 37
 pinStop = 35
 
 #Son los pines de cada LED.
-pinLED1 =
+pinLED1 = 36
+pinLED2 = 38
+pinLED3 = 40
 
 def callbackPrueba(msg):
     print("Recibiendo: {}.".format(msg.data))
