@@ -23,7 +23,7 @@ def main():
 
     GPIO.setmode(GPIO.BOARD)
 
-    GPIO.setup(pinStart, GPIO.IN)
+    GPIO.setup(pinStart, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
     while not rospy.is_shutdown():
         #res = servicio()
