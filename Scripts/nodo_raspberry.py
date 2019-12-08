@@ -9,7 +9,7 @@ from proyectoAutomatizacion.srv import DireccionBanda
 h = 10 #Hertz
 funcionando = False
 
-pinStart = 7
+pinStart = 11
 
 def callbackPrueba(msg):
     print("Recibiendo: {}.".format(msg.data))
@@ -19,7 +19,7 @@ def main():
     rospy.init_node('nodo_raspberry', anonymous=True)
     rate = rospy.Rate(h)
 
-    servicio = rospy.ServiceProxy('servicio_camara', DireccionBanda, persistent = True)
+    #servicio = rospy.ServiceProxy('servicio_camara', DireccionBanda, persistent = True)
 
     GPIO.setmode(GPIO.BOARD)
 
