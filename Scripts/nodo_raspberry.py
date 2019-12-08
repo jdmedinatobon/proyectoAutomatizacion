@@ -25,6 +25,7 @@ def callbackPrueba(msg):
     pass
 
 def main():
+    global funcionando
     rospy.init_node('nodo_raspberry', anonymous=True)
     rate = rospy.Rate(h)
 
@@ -47,14 +48,16 @@ def main():
 
         #print(res)
 
-        if GPIO.input(pinStart) and GPIO.input(pinStop):
-            print("START HIGH, STOP HIGH")
-        elif GPIO.input(pinStart):
-            print("START HIGH, STOP LOW")
-        elif GPIO.input(pinStop):
-            print("START LOW, STOP HIGH")
+        if GPIO.input(pinStart):
+            funcionando = True
+
+        if GPIO.input(pinStop):
+            funcionando = False
+
+        if funcionando:
+            GPIO.output(pinLED1, 1)
         else:
-            print("START LOW, STOP LOW")
+            GPIO.output(pinLED1, 0)
 
         rospy.sleep(1)
 
