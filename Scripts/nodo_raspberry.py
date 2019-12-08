@@ -15,6 +15,9 @@ pinStart = 37
 #Es el pin del boton de Stop
 pinStop = 35
 
+#Son los pines de cada LED.
+pinLED1 =
+
 def callbackPrueba(msg):
     print("Recibiendo: {}.".format(msg.data))
     pass
@@ -29,6 +32,13 @@ def main():
 
     GPIO.setup(pinStart, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
     GPIO.setup(pinStop, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+
+    GPIO.setup(pinLED1, GPIO.OUT)
+    GPIO.setup(pinLED2, GPIO.OUT)
+    GPIO.setup(pinLED3, GPIO.OUT)
+
+
+    GPIO.output(pinLED1, 1)
 
     while not rospy.is_shutdown():
         #res = servicio()
@@ -45,6 +55,8 @@ def main():
             print("START LOW, STOP LOW")
 
         rospy.sleep(1)
+
+    GPIO.output(pinLED1, 0)
 
 if __name__ == '__main__':
     try:
