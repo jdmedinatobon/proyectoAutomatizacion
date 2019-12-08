@@ -9,7 +9,11 @@ from proyectoAutomatizacion.srv import DireccionBanda
 h = 10 #Hertz
 funcionando = False
 
+#Es el pin del boton de Start.
 pinStart = 37
+
+#Es el pin del boton de Stop
+pinStop = 35
 
 def callbackPrueba(msg):
     print("Recibiendo: {}.".format(msg.data))
@@ -24,16 +28,21 @@ def main():
     GPIO.setmode(GPIO.BOARD)
 
     GPIO.setup(pinStart, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+    GPIO.setup(pinStop, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
     while not rospy.is_shutdown():
         #res = servicio()
 
         #print(res)
 
-        if GPIO.input(pinStart):
-            print("START HIGH")
+        if GPIO.input(pinStart) and GPIO.input(pinStop):
+            print("START HIGH, STOP HIGH")
+        elif GPIO.input(pinStart):
+            print("START HIGH, STOP LOW")
+        elif GPIO.input(pinStop):
+            print("START LOW, STOP HIGH")
         else:
-            print("START LOW")
+            print("START LOW, STOP LOW")
 
         rospy.sleep(1)
 
