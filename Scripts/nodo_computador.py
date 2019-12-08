@@ -27,7 +27,7 @@ def main():
     pub = rospy.Publisher('topico_prueba', Int32, queue_size = 10)
     rate = rospy.Rate(h)
 
-    s = rospy.Service('servicio_prueba', DireccionBanda, callBackServicio)
+    s = rospy.Service('servicio_camara', DireccionBanda, callBackServicio)
 
     while not rospy.is_shutdown():
         pub.publish(32)
