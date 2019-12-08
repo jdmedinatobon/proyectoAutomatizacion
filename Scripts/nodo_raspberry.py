@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 from sensor_msgs.msg import Image as msg_Image
 from std_msgs.msg import Int32
 from proyectoAutomatizacion.srv import DireccionBanda
+import time
 
 h = 10 #Hertz
 funcionando = False
@@ -33,7 +34,24 @@ def callbackPrueba(msg):
     pass
 
 def calcularDistancia():
+    #Por ahora solo el 1.
+    GPIO.output(pinUS1_trig, 1)
 
+    rospy.sleep(0.00001)
+    GPIO.output(pinUS1_trig, 0)
+
+    start = time.time()
+
+    while ~GPIO.input(pinUS1_echo):
+        start = time.time()
+
+    while GPIO.input(pinUS1_echo):
+        stop = time.time()
+
+    #En cm
+    distancia = ((stop - start)*34300.0)/2.0
+
+    return distancia
 
 def main():
     global funcionando
@@ -51,6 +69,13 @@ def main():
     GPIO.setup(pinLED2, GPIO.OUT)
     GPIO.setup(pinLED3, GPIO.OUT)
 
+    GPIO.setup(pinUS1_echo, GPIO.IN)
+    GPIO.setup(pinUS2_echo, GPIO.IN)
+    GPIO.setup(pinUS3_echo, GPIO.IN)
+
+    GPIO.setup(pinUS1_trig, GPIO.OUT)
+    GPIO.setup(pinUS2_trig, GPIO.OUT)
+    GPIO.setup(pinUS3_trig, GPIO.OUT)
 
     GPIO.output(pinLED1, 1)
 
